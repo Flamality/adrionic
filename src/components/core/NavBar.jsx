@@ -43,17 +43,28 @@ export default function NavBar() {
             alt='Logo'
             className='h-8 w-8 rounded-lg'
           /> */}
-          <h1 className='text-xl font-bold text-neutral-200'>Adrionic</h1>
+          <h1 className='text-xl font-bold text-neutral-200 hover:scale-110 transition-all'>
+            Adrionic
+          </h1>
         </Link>
         <div className='ml-1 h-5 flex flex-row items-center gap-4 max-md:hidden'>
           <div className='h-full w-px bg-neutral-400' />
-          <Link to={"/youtube"} className='text-sm text-neutral-300'>
+          <Link
+            to={"/youtube"}
+            className='text-sm text-neutral-300 hover:text-blue-400'
+          >
             Youtube
           </Link>
-          <Link to={"/discord"} className='text-sm text-neutral-300'>
+          <Link
+            to={"/discord"}
+            className='text-sm text-neutral-300 hover:text-blue-400'
+          >
             Discord
           </Link>
-          <Link to={"/socials"} className='text-sm text-neutral-300'>
+          <Link
+            to={"/socials"}
+            className='text-sm text-neutral-300 hover:text-blue-400'
+          >
             Socials
           </Link>
         </div>

@@ -22,3 +22,23 @@
 .custom-shape-divider-bottom-1740026936 .shape-fill {
   fill: #18181b;
 }
+
+.custom-shape-divider-bottom-1740094901 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1740094901 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 90px;
+}
+
+.custom-shape-divider-bottom-1740094901 .shape-fill {
+  fill: #18181b;
+}
