@@ -1,61 +1,84 @@
 import React from "react";
-import NavBar from "../../components/core/NavBar";
+import NavBar from "../../components/core/NavBar/NavBar";
+import Board from "../../components/community/Board";
+import Hero from "./components/Hero/Hero";
+
+import styles from "./Landing.module.css";
 
 export default function Landing() {
   return (
     <div>
-      <div className='min-h-screen w-full relative bg-gradient-to-br from-blue-700 to-purple-600'>
+      <div>
         <NavBar />
-        <div className='flex justify-center flex-col items-center h-screen'>
-          <h1 className='text-7xl font-extrabold text-neutral-200 drop-shadow-3xl max-md:text-5xl'>
-            ADRIONIC<span className='text-blue-400 text-2xl'>.xyz</span>
-          </h1>
-          <p className='text-3xl font-extrabold text-neutral-300 max-md:text-lg'>
-            THE OFFICIAL HOME OF ADRIONIC
-          </p>
-        </div>
-        <div class='custom-shape-divider-bottom-1740026936'>
-          <svg
-            data-name='Layer 1'
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 1200 120'
-            preserveAspectRatio='none'
-          >
-            <path
-              d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z'
-              opacity='.25'
-              class='shape-fill'
-            ></path>
-            <path
-              d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z'
-              opacity='.5'
-              class='shape-fill'
-            ></path>
-            <path
-              d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z'
-              class='shape-fill'
-            ></path>
-          </svg>
-        </div>
+        <Hero />
       </div>
 
-      <div className='w-full flex flex-row justify-evenly py-40 px-56 max-md:px-10 relative'>
-        <div className='w-96 h-96 rounded-full overflow-hidden border-2 border-zinc-700'>
+      <div className='w-full flex flex-row max-md:flex-col max-md:items-center justify-evenly py-40 px-56 max-md:px-10 max-lg:px-24 relative'>
+        <div className='w-full max-w-48 max-md:max-w-30 h-fit aspect-square rounded-full overflow-hidden border-2 border-zinc-700'>
           <img
             src={require("../../images/shot1.jpeg")}
-            className='w-full h-full object-cover'
+            className='w-full aspect-square object-cover rounded-full'
             alt='Adrionic'
           />
         </div>
-        <div className='w-fit ml-16'>
+        <div className='w-fit min-w-44 max-md:min-w-32 ml-16 max-md:ml-0 max-md:mt-8'>
           <p className='text-2xl font-bold text-neutral-200 mb-1'>
             About adrionic
           </p>
-          <p className='text-neutral-300'>
-            Adrian, better known as "Adrionic" is a game oriented content
-            creator, focused on the <strong>horror</strong> aspect of games.
+          <p className='text-neutral-300 max-md:text-sm'>
+            Adrian, better known as <strong>"Adrionic"</strong>, is a passionate
+            and dedicated content creator with a strong focus on{" "}
+            <strong>horror gaming</strong>. From spine-chilling indie horror
+            titles to heart-pounding survival experiences, Adrian thrives on
+            exploring the eerie and unsettling corners of the gaming world.
+            <br />
+            <br />
+            With a deep love for engaging storytelling and immersive gameplay,
+            he not only plays horror games but invites himself into every
+            jumpscare and plot twist, sharing his genuine reactions and insights
+            with his audience. His channel is a haven for horror enthusiasts
+            seeking both entertainment and a sense of community among fellow
+            fans of the genre.
+            <br />
+            <br />
+            Beyond just gaming, Adrian values his community above all else,
+            actively interacting with his audience through live streams,
+            discussions, and special events. His goal is to craft the most
+            thrilling and entertaining content possible, ensuring that every
+            video and stream delivers a unique and unforgettable experience for
+            his viewers.
           </p>
         </div>
+      </div>
+
+      <div className={styles.merch}>
+        <img
+          src={require("../../images/merch/hoodie.png")}
+          className={styles.merch1}
+        />
+        <img
+          src={require("../../images/merch/hoodie2.png")}
+          className={styles.merch2}
+        />
+        <p className={styles.merchTitle}>MERCH</p>
+        <p className={styles.merchDesc}>
+          Adrionic offers a wide variety of merch for you to buy! From hoodies
+          to socks to mousepads, there are alot of options to pick from.
+        </p>
+        <a
+          href='https://adrionic-merch.printify.me'
+          target='_blank'
+          rel='noopener noreferrer'
+          className={styles.shopButton}
+        >
+          Shop now
+        </a>
+      </div>
+      <div className='bg-zinc-800 w-full flex flex-col items-center py-40 px-56 max-md:px-10 relative'>
+        <p className='text-neutral-200 font-bold mb-8 text-lg'>
+          Community wall
+        </p>
+        <Board />
       </div>
     </div>
   );

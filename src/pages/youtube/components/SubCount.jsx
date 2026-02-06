@@ -6,7 +6,7 @@ export default function SubCount() {
   const prevSubs = useRef(0); // To keep track of the previous count
   const count = useMotionValue(0);
   const rounded = useTransform(count, (value) =>
-    Math.floor(value).toLocaleString("en-US")
+    Math.floor(value).toLocaleString("en-US"),
   );
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function SubCount() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`
+          `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`,
         );
         const data = await res.json();
         setSubs(Number(data.items[0].statistics.subscriberCount));
@@ -44,13 +44,19 @@ export default function SubCount() {
 
   return (
     <div className='flex flex-col items-center w-full gap-2'>
-      <p className='text-3xl text-neutral-200 font-bold'>SUBSCRIBER COUNT</p>
-      <motion.p className='text-7xl text-neutral-100 font-extrabold tracking-widest'>
-        {rounded}
-      </motion.p>
-      <p className='text-sm text-neutral-300 font-semibold'>
-        Count rounded due to YouTube API
-      </p>
+      <div className='flex flex-col justify-center items-center md:flex-row md:items-baseline gap-2'>
+        <div className='flex flex-row'>
+          <motion.p className='text-7xl text-neutral-100 font-extrabold tracking-widest'>
+            {rounded}
+          </motion.p>
+          <p className='text-7xl text-neutral-100 font-extrabold tracking-widest'>
+            +
+          </p>
+        </div>
+        <p className='text-3xl text-neutral-200 font-bold sm:text-3xl md:text-4xl'>
+          Subscribers
+        </p>
+      </div>
     </div>
   );
 }

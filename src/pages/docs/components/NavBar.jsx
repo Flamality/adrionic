@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import AccountWidget from "../auth/AccountWidget";
+import React, { useState, useEffect, useRef } from "react";
+import AccountWidget from "../../../components/auth/AccountWidget";
 import { Link } from "react-router-dom";
 import NavBarDropdown from "./NavBarDropdown";
 
@@ -12,13 +12,15 @@ export default function NavBar() {
   };
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        ref.current &&
-        !ref.current.contains(event.target) &&
-        !altRef.current.contains
-      ) {
-        setDropdown(false);
-      }
+      try {
+        if (
+          ref.current &&
+          !ref.current?.contains(event.target) &&
+          !altRef.current.contains
+        ) {
+          setDropdown(false);
+        }
+      } catch (error) {}
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -35,7 +37,7 @@ export default function NavBar() {
           className='h-6 mt-px hidden max-md:block cursor-pointer opacity-60 hover:opacity-90'
           onClick={toggleDropdown}
           ref={ref}
-          src={require("../../images/hamburger.png")}
+          src={require("../../../images/hamburger.png")}
         />
         <Link to={"/"} className='flex flex-row gap-2 items-center'>
           {/* <img
@@ -43,31 +45,12 @@ export default function NavBar() {
             alt='Logo'
             className='h-8 w-8 rounded-lg'
           /> */}
-          <h1 className='text-xl font-bold text-neutral-200 hover:scale-110 transition-all'>
-            Adrionic
+          <h1 className='text-base font-bold text-neutral-200 hover:opacity-80'>
+            Adrionic{" "}
+            <span className='px-1 text-xs bg-blue-700 rounded'>DOCS</span>
           </h1>
         </Link>
-        <div className='ml-1 h-5 flex flex-row items-center gap-4 max-md:hidden'>
-          <div className='h-full w-px bg-neutral-400' />
-          <Link
-            to={"/youtube"}
-            className='text-sm text-neutral-300 hover:text-blue-400'
-          >
-            Youtube
-          </Link>
-          <Link
-            to={"/discord"}
-            className='text-sm text-neutral-300 hover:text-blue-400'
-          >
-            Discord
-          </Link>
-          <Link
-            to={"/socials"}
-            className='text-sm text-neutral-300 hover:text-blue-400'
-          >
-            Socials
-          </Link>
-        </div>
+        <div className='ml-1 h-5 flex flex-row items-center gap-4 max-md:hidden'></div>
         <NavBarDropdown altRef={altRef} dropdown={dropdown} />
       </div>
       <div className='flex items-center'>

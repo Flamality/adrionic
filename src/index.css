@@ -1,6 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+:root {
+  --color-bg-primary: #18181b;
+  --color-bg-secondary: #27272a;
+  --color-surface-primary: #3f3f46;
+  --color-surface-secondary: #52525b;
+
+  --font-3d: 'Rampart One';
+
+  --font-vinyl: 'Rubik Vinyl';
+
+  --color-primary: #0000ff;
+  --color-primary-light: #11aefe;
+  --color-primary-dark: #0000c6;
+
+  --color-secondary: #fde601;
+  --color-secondary-light: #f3eac6;
+  --color-secondary-dark: #948f39;
+}
 
 .custom-shape-divider-bottom-1740026936 {
   position: absolute;
@@ -40,5 +63,46 @@
 }
 
 .custom-shape-divider-bottom-1740094901 .shape-fill {
+  fill: #18181b;
+}
+
+.custom-shape-divider-bottom-1741232255 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1741232255 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-bottom-1741232255 .shape-fill {
+  fill: #27272a;
+}
+
+.custom-shape-divider-top-1741238143 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1741238143 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1741238143 .shape-fill {
   fill: #18181b;
 }

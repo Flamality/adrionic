@@ -14,7 +14,7 @@ export default function AccountWidget({ side = "right" }) {
   };
 
   const toggleDropdown = () => {
-    setDropdown(!dropdown);
+    setDropdown(true);
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function AccountWidget({ side = "right" }) {
               @{user?.username}
             </p>
           </div>
-          {dropdown ? <AccountDropdown side={side} ref={absRef} /> : <></>}
+          {dropdown ? <AccountDropdown side={side} altRef={absRef} /> : <></>}
         </div>
       ) : (
         <button

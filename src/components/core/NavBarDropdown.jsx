@@ -8,7 +8,7 @@ export default function NavBarDropdown({ dropdown, altRef }) {
   return (
     <div
       ref={altRef}
-      className={`absolute h-screen top-full max-w-screen hidden max-md:flex flex-col items-center p-4 px-10 bg-zinc-900 z-50 ${
+      className={`absolute h-screen top-0 max-w-screen hidden max-md:flex flex-col items-center p-4 px-10 pt-16 bg-zinc-900 z-40 ${
         dropdown ? "left-0" : "-left-full"
       } transition-all`}
     >

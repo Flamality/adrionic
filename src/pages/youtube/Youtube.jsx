@@ -1,6 +1,7 @@
 import React from "react";
-import NavBar from "../../components/core/NavBar";
+import NavBar from "../../components/core/NavBar/NavBar";
 import SubCount from "./components/SubCount";
+import RecentPosts from "./components/RecentPosts";
 
 export default function Youtube() {
   return (
@@ -24,11 +25,30 @@ export default function Youtube() {
       </div>
       <div className='relative'>
         <div className='w-full flex flex-col justify-evenly py-40 px-56 max-md:px-10 relative'>
-          <h1 className='text-3xl font-bold text-neutral-200 mb-10'>Youtube</h1>
-          <p className='text-neutral-300'>
-            This page is currently under construction... Please check back
-            later.
+          <p className='text-3xl text-neutral-200 font-bold'>Schedule</p>
+          <p className='text-xl text-neutral-300 font-semibold mt-4'>Videos</p>
+          <p className='text-base text-neutral-400 font-normal'>
+            1-2 videos released weekly at 4pm EST
           </p>
+          <p className='text-xl text-neutral-300 font-semibold mt-4'>
+            Live streams
+          </p>
+          <p className='text-base text-neutral-400 font-normal'>
+            Live every friday from 10pm - 12AM EST
+          </p>
+          <p className='text-3xl text-neutral-200 font-bold mt-16'>
+            Recent Videos
+          </p>
+          <RecentPosts />
+        </div>
+        <div className='w-full py-48 px-10 bg-rose-600 flex items-center justify-center'>
+          <a
+            href='https://youtube.com/@adrionic'
+            target='_blank'
+            className='text-rose-600 bg-neutral-100 hover:bg-neutral-800 transition-all py-3 px-12 rounded-full text-3xl font-extrabold'
+          >
+            SUBSCRIBE
+          </a>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { useAuth } from "../../context/user";
 
-export const AccountDropdown = forwardRef(({ ref, side }) => {
+export const AccountDropdown = ({ altRef, side }) => {
   const { user, logout } = useAuth();
   return (
     <div
-      ref={ref}
+      ref={altRef}
       className={`absolute -bottom-12 flex flex-row justify-between py-2 px-4 bg-zinc-950 rounded h-12 w-56 overflow-hidden ${
         side == "right" ? "-right-2" : "-left-2"
       }`}
@@ -21,4 +21,4 @@ export const AccountDropdown = forwardRef(({ ref, side }) => {
       </button>
     </div>
   );
-});
+};

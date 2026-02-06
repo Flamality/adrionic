@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { account } from "../appwrite";
-import { OAuthProvider } from "appwrite";
+import { account, databases } from "../appwrite";
+import { ID, OAuthProvider, Query } from "appwrite";
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -23,6 +23,24 @@ export const AuthProvider = ({ children }) => {
     account.deleteSession("current");
     setIsAuthenticated(false);
     setUser(null);
+  };
+  const getBoard = async () => {
+    const res = await databases.listDocuments("db", "wall", [
+      Query.orderDesc("timestamp"),
+      Query.limit(4),
+    ]);
+    return res.documents;
+  };
+  const postToBoard = (message) => {
+    if (!user) return;
+    databases.createDocument("db", "wall", ID.unique(), {
+      user: user.id,
+      message,
+      avatar: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`,
+      displayname: user.global_name,
+      username: user.username,
+      timestamp: String(Date.now()),
+    });
   };
   useEffect(() => {
     const getSession = async () => {
@@ -50,7 +68,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, user }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, login, logout, user, getBoard, postToBoard }}
+    >
       {children}
     </AuthContext.Provider>
   );
